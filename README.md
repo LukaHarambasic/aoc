@@ -1,4 +1,4 @@
-# aoc
+# Advent of Code
 
 ## Installation
 

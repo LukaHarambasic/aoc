@@ -17,9 +17,9 @@ import sample02 from './sample02.txt';
 //   expect(main02(sample02)).toBe(335);
 // });
 
-test("day01 - main02 - input01", () => {
-  // 54914 is too low
-  // original 281
-  console.log('##################')
-  expect(main02(input01)).toBe(1);
-});
+// test("day01 - main02 - input01", () => {
+//   // 54914 is too low
+//   // original 281
+//   console.log('##################')
+//   expect(main02(input01)).toBe(1);
+// });

@@ -38,13 +38,12 @@ export function part2(input: string): number {
                 return game
                     .filter(item => item.includes(color))
                     .map(item => parseInt(item.replace(color, '')))
-                })
+            })
         })
         .map(game => {
-            return game.map(item => Math.max(...item))
-        })
-        .map(game => {
-            return game.reduce((result, item) => result * item, 1)
+            return game
+                .map(item => Math.max(...item))
+                .reduce((result, item) => result * item, 1)
         })
         .reduce((sum, game) => sum + game, 0)
 }

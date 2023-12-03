@@ -2,14 +2,13 @@ import { linesToArray } from "../utils.ts"
 
 // Day 02: https://adventofcode.com/2023/day/2
 
-export function main01(input: string, solution: number[]): number {
+export function part1(input: string, solution: number[]): number {
     return linesToArray(input)
-        // transform data in correct format
         .map(game => {
             return game
                 .split(': ')[1]
                 .split(';')
-                .map(draw => draw.split(',').map(item => item.replace(" ", "").trim()))
+                .map(draw => draw.split(',').map(item => item.replaceAll(" ", "").trim()))
                 .flat()
         })
         .reduce((sum, game, index) => {
@@ -25,6 +24,27 @@ export function main01(input: string, solution: number[]): number {
         }, 0)
 }
 
-export function main02(input: string): number {
-    return -1
+export function part2(input: string): number {
+    return linesToArray(input)
+        .map(game => {
+            return game
+                .split(': ')[1]
+                .split(';')
+                .map(draw => draw.split(',').map(item => item.replaceAll(" ", "").trim()))
+                .flat()
+        })
+        .map(game => {
+            return ['red', 'green', 'blue'].map((color) => {
+                return game
+                    .filter(item => item.includes(color))
+                    .map(item => parseInt(item.replace(color, '')))
+                })
+        })
+        .map(game => {
+            return game.map(item => Math.max(...item))
+        })
+        .map(game => {
+            return game.reduce((result, item) => result * item, 1)
+        })
+        .reduce((sum, game) => sum + game, 0)
 }

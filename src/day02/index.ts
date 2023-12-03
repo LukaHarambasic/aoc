@@ -30,8 +30,9 @@ export function part2(input: string): number {
             return game
                 .split(': ')[1]
                 .split(';')
-                .map(draw => draw.split(',').map(item => item.replaceAll(" ", "").trim()))
+                .map(draw => draw.split(','))
                 .flat()
+                .map(item => item.replaceAll(" ", "").trim())
         })
         .map(game => {
             return ['red', 'green', 'blue'].map((color) => {
